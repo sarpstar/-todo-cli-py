@@ -1,0 +1,9 @@
+# To-Do CLI (Python)
+
+Basit bir komut satırı tabanlı yapılacaklar listesi.
+
+## Kullanım
+```bash
+python todo.py add "Kitap oku"
+python todo.py list
+python todo.py remove 1
