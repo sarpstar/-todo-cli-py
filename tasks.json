@@ -1,0 +1,29 @@
+### `todo.py`
+```python
+import sys
+import storage
+
+def main():
+    if len(sys.argv) < 2:
+        print("Kullanım: python todo.py [add|list|remove] <görev>")
+        return
+
+    command = sys.argv[1]
+
+    if command == "add":
+        task = " ".join(sys.argv[2:])
+        storage.add_task(task)
+        print(f"Görev eklendi: {task}")
+    elif command == "list":
+        tasks = storage.load_tasks()
+        for i, t in enumerate(tasks, 1):
+            print(f"{i}. {t}")
+    elif command == "remove":
+        index = int(sys.argv[2]) - 1
+        storage.remove_task(index)
+        print("Görev silindi.")
+    else:
+        print("Geçersiz komut.")
+
+if __name__ == "__main__":
+    main()
